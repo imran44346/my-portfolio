@@ -7,8 +7,7 @@
 
 <title>Imran Ali Ansari — Developer Portfolio</title>
 
-<meta name="description"
-content="The portfolio of Imran Ali Ansari, a Computer Science and Technology diploma student exploring web development, JavaScript, and interactive digital experiences.">
+<meta name="description" content="The portfolio of Imran Ali Ansari, a Computer Science and Technology diploma student exploring web development, JavaScript, and interactive digital experiences.">
 
 <style>
 :root {
@@ -59,9 +58,7 @@ button {
   z-index: 2;
   pointer-events: none;
   opacity: .12;
-  background-image: url(
-    "data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.3'/%3E%3C/svg%3E"
-  );
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.3'/%3E%3C/svg%3E");
 }
 
 .vignette {
@@ -69,12 +66,7 @@ button {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 5%,
-    rgba(0,0,0,.35) 60%,
-    #000 110%
-  );
+  background: radial-gradient(ellipse at center, transparent 5%, rgba(0,0,0,.35) 60%, #000 110%);
 }
 
 .progress {
@@ -228,22 +220,33 @@ section {
 }
 
 @keyframes drift {
-  0%,100% { transform: scaleY(.5); opacity: .4; }
-  50% { transform: scaleY(1); opacity: 1; }
+  0%,100% {
+    transform: scaleY(.5);
+    opacity: .4;
+  }
+
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
 }
 
 /* ABOUT */
 
 .content-section {
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .content-card {
-  max-width: 460px;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 30px 0;
-  background: linear-gradient(90deg, #000a, transparent);
+  width: 100%;
+  max-width: 820px;
+  border: 1px solid rgba(255,255,255,.10);
+  padding: 30px;
+  background: linear-gradient(135deg, rgba(20,21,27,.58), rgba(5,5,8,.28));
+  backdrop-filter: blur(18px) saturate(125%);
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
+  box-shadow: 0 20px 70px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.035);
+  text-align: center;
 }
 
 .section-label {
@@ -271,6 +274,8 @@ section {
 
 .stats {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 35px;
   margin-top: 28px;
 }
@@ -290,6 +295,49 @@ section {
   text-transform: uppercase;
 }
 
+#skills .content-card {
+  max-width: 1080px;
+}
+
+/* REPEATING SCROLL REVEAL */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(34px) scale(.985);
+  filter: blur(5px);
+  transition:
+    opacity .85s ease,
+    transform .85s cubic-bezier(.2,.7,.2,1),
+    filter .85s ease;
+  will-change: opacity, transform, filter;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.project.reveal:nth-child(2) {
+  transition-delay: .10s;
+}
+
+.project.reveal:nth-child(3) {
+  transition-delay: .18s;
+}
+
+.project.reveal:nth-child(4) {
+  transition-delay: .26s;
+}
+
+.project.reveal:nth-child(5) {
+  transition-delay: .34s;
+}
+
+.project.reveal:nth-child(6) {
+  transition-delay: .42s;
+}
+
 /* PROJECTS */
 
 .projects-section {
@@ -299,8 +347,16 @@ section {
 }
 
 .projects-heading {
-  max-width: 650px;
-  margin-bottom: 48px;
+  max-width: 850px;
+  margin: 0 auto 48px;
+  padding: 30px 28px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(18,19,25,.62), rgba(5,5,8,.30));
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
+  box-shadow: 0 18px 60px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.04);
 }
 
 .projects-heading p {
@@ -318,19 +374,27 @@ section {
 
 .project {
   position: relative;
-  min-height: 235px;
+  min-height: 250px;
   padding: 25px;
   border: 1px solid var(--border);
+  border-radius: 4px;
   background:
-    radial-gradient(ellipse at 75% 20%, #33343b45, transparent 55%),
-    linear-gradient(135deg, #101013, #030304 75%);
+    radial-gradient(ellipse at 75% 20%, rgba(116,124,145,.17), transparent 55%),
+    linear-gradient(135deg, rgba(22,23,30,.72), rgba(4,4,7,.55) 75%);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.045), 0 18px 45px rgba(0,0,0,.16);
   overflow: hidden;
-  transition: transform .35s, border-color .35s;
+  transition: transform .35s, border-color .35s, background .35s, box-shadow .35s;
 }
 
 .project:hover {
   transform: translateY(-5px);
-  border-color: #85858d;
+  border-color: rgba(225,230,242,.48);
+  background:
+    radial-gradient(ellipse at 75% 20%, rgba(146,158,190,.23), transparent 55%),
+    linear-gradient(135deg, rgba(28,29,38,.82), rgba(5,5,8,.64) 75%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 22px 55px rgba(0,0,0,.3);
 }
 
 .project::before {
@@ -342,25 +406,60 @@ section {
   border-radius: 50%;
   right: -55px;
   top: -70px;
-  box-shadow:
-    0 0 0 20px #7771,
-    0 0 0 40px #7771,
-    0 0 50px #7772;
+  box-shadow: 0 0 0 20px #7771, 0 0 0 40px #7771, 0 0 50px #7772;
   transition: transform .6s;
+  pointer-events: none;
 }
 
 .project:hover::before {
   transform: scale(1.2) rotate(20deg);
 }
 
+/* CUSTOM GLASS PROJECT LOGOS */
+
+.project-art {
+  position: absolute;
+  top: 29px;
+  right: 28px;
+  width: 68px;
+  height: 68px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.17);
+  border-radius: 18px;
+  color: #d7dae3;
+  background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.015));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 8px 28px rgba(0,0,0,.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform .45s ease, border-color .45s ease, box-shadow .45s ease;
+  z-index: 1;
+}
+
+.project-art svg {
+  width: 42px;
+  height: 42px;
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(220,225,240,.16));
+}
+
+.project:hover .project-art {
+  transform: translateY(-3px) rotate(-4deg) scale(1.06);
+  border-color: rgba(235,238,248,.48);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 10px 32px rgba(0,0,0,.3), 0 0 25px rgba(220,225,240,.07);
+}
+
 .project-number {
   color: #8a8b93;
   font-size: 10px;
   letter-spacing: .2em;
+  position: relative;
+  z-index: 2;
 }
 
 .project h3 {
   position: relative;
+  z-index: 2;
   margin-top: 70px;
   font-size: 25px;
   font-weight: 400;
@@ -369,20 +468,112 @@ section {
 
 .project p {
   position: relative;
+  z-index: 2;
   margin-top: 10px;
-  color: #94969d;
+  color: #b0b1b9;
   font-size: 12px;
   line-height: 1.7;
+  max-width: 95%;
 }
 
 .project-tag {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  margin-top: 18px;
   font-size: 9px;
   letter-spacing: .15em;
-  color: #777981;
+  color: #92949c;
   text-transform: uppercase;
+}
+
+/* SKILLS */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.skill-icon-card {
+  min-height: 132px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 18px 8px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(0,0,0,.45));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform .4s ease, border-color .4s ease, background .4s ease, box-shadow .4s ease;
+}
+
+.skill-icon-card::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(255,255,255,.035);
+  transform: scale(.9);
+  opacity: 0;
+  transition: .4s ease;
+}
+
+.skill-icon-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(220,223,230,.48);
+  background: linear-gradient(145deg, rgba(255,255,255,.11), rgba(0,0,0,.7));
+  box-shadow: 0 12px 35px #000, 0 0 22px #ffffff08;
+}
+
+.skill-icon-card:hover::before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.skill-icon {
+  width: 48px;
+  height: 48px;
+  color: #a7a9b0;
+  filter: grayscale(1);
+  opacity: .82;
+  transition: transform .45s ease, opacity .45s ease, color .45s ease, filter .45s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.skill-icon-card:hover .skill-icon {
+  transform: scale(1.14) rotate(-3deg);
+  color: #f0f0f2;
+  opacity: 1;
+  filter: grayscale(1) drop-shadow(0 0 10px #ffffff30);
+}
+
+.skill-name {
+  position: relative;
+  z-index: 1;
+  color: #a8a9b0;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: .13em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: color .35s ease, letter-spacing .35s ease, transform .35s ease;
+}
+
+.skill-icon-card:hover .skill-name {
+  color: #f0f0f2;
+  letter-spacing: .16em;
+  transform: translateY(-1px);
+}
+
+.skill-icon-card:focus-visible {
+  outline: 1px solid #ddd;
+  outline-offset: 4px;
 }
 
 /* CONTACT */
@@ -394,6 +585,13 @@ section {
 
 .contact-inner {
   max-width: 720px;
+  padding: 28px;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 18px;
+  background: rgba(8,8,12,.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 20px 60px rgba(0,0,0,.15);
 }
 
 .contact h2 {
@@ -401,7 +599,7 @@ section {
 }
 
 .contact p {
-  color: #999ba3;
+  color: #b0b1b9;
   font-size: 13px;
   line-height: 1.9;
   margin: 25px auto;
@@ -469,8 +667,19 @@ footer {
   background: #ffffff1a;
 }
 
-.joystick::before { height: 1px; left: 12px; right: 12px; top: 50%; }
-.joystick::after { width: 1px; top: 12px; bottom: 12px; left: 50%; }
+.joystick::before {
+  height: 1px;
+  left: 12px;
+  right: 12px;
+  top: 50%;
+}
+
+.joystick::after {
+  width: 1px;
+  top: 12px;
+  bottom: 12px;
+  left: 50%;
+}
 
 .stick {
   position: absolute;
@@ -511,26 +720,115 @@ footer {
 }
 
 @keyframes ripple {
-  to { transform: scale(12); opacity: 0; }
+  to {
+    transform: scale(12);
+    opacity: 0;
+  }
 }
 
 @media(max-width:650px) {
-  header { padding: 20px; }
-  .header-right { gap: 12px; }
-  .header-right span { display:none; }
-  section { padding: 100px 25px; }
-  .project-grid { grid-template-columns: 1fr; }
-  .project { min-height: 205px; }
-  .joystick-wrap { right: 12px; bottom: 12px; transform: scale(.82); transform-origin: bottom right; }
-  .hero p { max-width: 340px; }
-  footer { flex-direction: column; }
+  header {
+    padding: 20px;
+  }
+
+  .header-right {
+    gap: 12px;
+  }
+
+  .header-right span {
+    display: none;
+  }
+
+  section {
+    padding: 100px 25px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .skill-icon-card {
+    min-height: 120px;
+    padding: 16px 5px;
+    gap: 10px;
+  }
+
+  .skill-name {
+    font-size: 9px;
+    letter-spacing: .08em;
+  }
+
+  .skill-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .project {
+    min-height: 225px;
+  }
+
+  .project-art {
+    width: 56px;
+    height: 56px;
+    top: 23px;
+    right: 22px;
+    border-radius: 15px;
+  }
+
+  .project-art svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .projects-heading {
+    padding: 25px 18px;
+  }
+
+  .content-card {
+    padding: 25px 18px;
+  }
+
+  .contact-inner {
+    padding: 22px 16px;
+  }
+
+  .joystick-wrap {
+    right: 12px;
+    bottom: 12px;
+    transform: scale(.82);
+    transform-origin: bottom right;
+  }
+
+  .hero p {
+    max-width: 340px;
+  }
+
+  footer {
+    flex-direction: column;
+  }
 }
 
 @media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after { scroll-behavior:auto !important; animation:none !important; }
+  *,*::before,*::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition-duration: .01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
 }
 </style>
 </head>
+
 <body>
 <div class="progress" id="progress"></div>
 <canvas id="universe"></canvas>
@@ -538,27 +836,31 @@ footer {
 <div class="noise"></div>
 
 <header>
-  <a class="logo" href="#home">I&nbsp; IMRAN ALI ANSARI</a>
+  <a class="logo" href="#home">IMRAN ALI ANSARI</a>
+
   <nav class="header-right">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#certificates">Certificates</a>
-    <a href="#projects">Project</a>
+    <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
     <span>Scroll to explore ↘</span>
   </nav>
 </header>
 
 <main>
+
   <section class="hero panel" id="home">
     <div class="hero-content">
       <div class="eyebrow">COMPUTER SCIENCE STUDENT</div>
       <h1>IMRAN ALI<span>ANSARI.</span></h1>
       <p>Exploring code, building my skills, and turning curiosity into interactive digital experiences. This is where my journey begins.</p>
+
       <div class="hero-actions">
         <a class="btn" href="#projects">Explore my work ↘</a>
         <a class="btn" href="#about">Get to know me ↗</a>
       </div>
+
       <div class="scroll-cue">Scroll to explore<i></i></div>
     </div>
   </section>
@@ -569,9 +871,10 @@ footer {
       <h2>A little about<br>me.</h2>
       <p>Learning the fundamentals. Exploring what is possible. Building one step at a time.</p>
       <p>Hey, I'm Imran Ali Ansari, a Diploma student in Computer Science &amp; Technology at Kanyapur Polytechnic, India. I'm developing my programming and web development skills, learning through practice, and exploring how thoughtful design and code can create memorable experiences on the web. I don't claim to know everything. I'm here to keep learning, improve my work, and build things that reflect the progress I make.</p>
+
       <div class="stats">
         <div class="stat"><strong>CS&amp;T</strong><span>Diploma student</span></div>
-        <div class="stat"><strong>01</strong><span>Featured project</span></div>
+        <div class="stat"><strong>05</strong><span>Project ideas</span></div>
         <div class="stat"><strong>∞</strong><span>Still learning</span></div>
       </div>
     </div>
@@ -582,13 +885,62 @@ footer {
       <div class="section-label">02 / WHAT I'M LEARNING</div>
       <h2>My technical<br>foundation.</h2>
       <p>These are the areas I'm studying and developing. This portfolio is also a practical exercise in bringing web technologies together.</p>
-      <div class="project-grid">
-        <article class="project"><div class="project-number">SKILL / 001</div><h3>HTML5</h3><p>Structuring accessible, meaningful web pages.</p><div class="project-tag">Web fundamentals</div></article>
-        <article class="project"><div class="project-number">SKILL / 002</div><h3>CSS3</h3><p>Layouts, responsive design, animation and visual styling.</p><div class="project-tag">Visual styling</div></article>
-        <article class="project"><div class="project-number">SKILL / 003</div><h3>JavaScript</h3><p>Learning programming logic and interactive web behaviour.</p><div class="project-tag">Programming</div></article>
-        <article class="project"><div class="project-number">SKILL / 004</div><h3>GitHub</h3><p>Learning to organise, publish and share my work.</p><div class="project-tag">Version control</div></article>
-        <article class="project"><div class="project-number">SKILL / 005</div><h3>Responsive Design</h3><p>Creating layouts that adapt to different screen sizes.</p><div class="project-tag">Multi-device</div></article>
-        <article class="project"><div class="project-number">SKILL / 006</div><h3>Creative Development</h3><p>Exploring motion, interaction and immersive web experiences.</p><div class="project-tag">Experiments</div></article>
+
+      <div class="skills-grid" aria-label="Technical skills and tools">
+
+        <div class="skill-icon-card" role="img" aria-label="HTML5 logo" title="HTML5">
+          <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path fill="currentColor" d="M10 4h44l-4 47-18 9-18-9z"/>
+            <path fill="#080809" d="M32 9h17l-3.2 38L32 54z"/>
+            <path fill="#080809" d="M19 16h27l-.7 6H25l.7 6h19l-1.8 16L32 49l-11-5-.7-8h6.5l.4 3.8 6.8 2.3 6.8-2.3.7-6.3H20z"/>
+          </svg>
+          <span class="skill-name">HTML5</span>
+        </div>
+
+        <div class="skill-icon-card" role="img" aria-label="CSS3 logo" title="CSS3">
+          <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path fill="currentColor" d="M10 4h44l-4 47-18 9-18-9z"/>
+            <path fill="#080809" d="M32 9h17l-3.2 38L32 54z"/>
+            <path fill="#080809" d="M19 16h28l-.7 6H26l.5 6h19l-1.8 16L32 49l-11-5-.7-8h6.5l.4 3.8 6.8 2.3 6.8-2.3.7-6.3H20z"/>
+          </svg>
+          <span class="skill-name">CSS3</span>
+        </div>
+
+        <div class="skill-icon-card" role="img" aria-label="JavaScript logo" title="JavaScript">
+          <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <rect x="5" y="5" width="54" height="54" rx="3" fill="currentColor"/>
+            <path fill="#080809" d="M35 43c1 3 3 4 6 4 2 0 4-1 4-3 0-2-2-3-5-4-5-2-8-4-8-9 0-5 4-9 10-9 5 0 8 2 10 6l-5 3c-1-2-2-3-5-3-2 0-3 1-3 3 0 2 2 3 5 4 5 2 8 4 8 9 0 6-5 9-11 9-6 0-10-3-12-7zM24 23h6v23c0 6-3 9-9 9-4 0-7-2-9-5l4-4c1 2 2 3 4 3s4-1 4-4z"/>
+          </svg>
+          <span class="skill-name">JavaScript</span>
+        </div>
+
+        <div class="skill-icon-card" role="img" aria-label="GitHub logo" title="GitHub">
+          <svg class="skill-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.82c.56.1.77-.24.77-.54v-2.1c-3.14.68-3.8-1.33-3.8-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1 .1.76 2.14 3.47 1.53.1-.73.39-1.22.7-1.5-2.5-.28-5.13-1.25-5.13-5.55 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.13-1.45 3.08-1.15 3.08-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.31-2.64 5.26-5.15 5.54.4.35.75 1.03.75 2.08v3.1c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8z"/>
+          </svg>
+          <span class="skill-name">GitHub</span>
+        </div>
+
+        <div class="skill-icon-card" role="img" aria-label="Responsive design" title="Responsive design">
+          <svg class="skill-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true">
+            <rect x="5" y="9" width="42" height="31" rx="3"/>
+            <path d="M18 51h16M26 40v11"/>
+            <rect x="40" y="28" width="18" height="28" rx="3" fill="#080809"/>
+            <path d="M46 33h6M47 51h4"/>
+          </svg>
+          <span class="skill-name">Responsive Design</span>
+        </div>
+
+        <div class="skill-icon-card" role="img" aria-label="Creative development" title="Creative development">
+          <svg class="skill-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="32" cy="32" r="5" fill="currentColor"/>
+            <ellipse cx="32" cy="32" rx="25" ry="10" transform="rotate(-35 32 32)"/>
+            <ellipse cx="32" cy="32" rx="25" ry="10" transform="rotate(35 32 32)"/>
+            <circle cx="50" cy="17" r="3" fill="currentColor" stroke="none"/>
+          </svg>
+          <span class="skill-name">Creative Development</span>
+        </div>
+
       </div>
     </div>
   </section>
@@ -599,25 +951,138 @@ footer {
       <h2>Certificates &amp;<br>learning.</h2>
       <p>Formal learning milestones that support my journey into web development and programming.</p>
     </div>
+
     <div class="project-grid">
-      <article class="project"><div class="project-number">CERTIFICATE / 001</div><h3>Responsive Web Design</h3><p>freeCodeCamp · Certificate earned</p><div class="project-tag">freeCodeCamp</div></article>
-      <article class="project"><div class="project-number">CERTIFICATE / 002</div><h3>JavaScript Algorithms and Data Structures</h3><p>freeCodeCamp · Certificate earned</p><div class="project-tag">freeCodeCamp</div></article>
+
+      <article class="project">
+        <div class="project-number">CERTIFICATE / 001</div>
+
+        <div class="project-art" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M13 8h27l11 11v37H13z" stroke="currentColor" stroke-width="2"/>
+            <path d="M40 8v12h11M21 30h22M21 37h22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="43" cy="47" r="8" fill="#17181d" stroke="currentColor" stroke-width="2"/>
+            <path d="m39 47 3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <h3>Responsive Web Design</h3>
+        <p>freeCodeCamp · Certificate earned</p>
+        <div class="project-tag">freeCodeCamp</div>
+      </article>
+
+      <article class="project">
+        <div class="project-number">CERTIFICATE / 002</div>
+
+        <div class="project-art" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none">
+            <rect x="9" y="9" width="46" height="46" rx="8" stroke="currentColor" stroke-width="2"/>
+            <path d="m25 23-8 9 8 9M39 23l8 9-8 9M35 19l-6 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <h3>JavaScript Algorithms and Data Structures</h3>
+        <p>freeCodeCamp · Certificate earned</p>
+        <div class="project-tag">freeCodeCamp</div>
+      </article>
+
     </div>
   </section>
 
   <section class="panel projects-section" id="projects">
     <div class="projects-heading">
       <div class="section-label">04 / THE WORK</div>
-      <h2>One universe.<br>One project.</h2>
-      <p>A real project I'm developing: this interactive portfolio. No made-up clients or fictional case studies.</p>
+      <h2>One universe.<br>Five ideas.</h2>
+      <p>My current portfolio is a real work in progress. The other projects are concepts I want to build next, one step at a time.</p>
     </div>
+
     <div class="project-grid">
+
       <article class="project">
         <div class="project-number">PROJECT / 001</div>
-        <h3>Event Horizon</h3>
-        <p>An experimental personal portfolio inspired by black holes and deep space. The experience combines a dark visual system, animated starfield, responsive layouts, pointer movement, scroll-based transitions and an interactive on-screen control.</p>
-        <div class="project-tag">Personal portfolio · In progress</div>
+
+        <div class="project-art" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="11" fill="#030305" stroke="currentColor" stroke-width="2"/>
+            <ellipse cx="32" cy="32" rx="28" ry="10" stroke="currentColor" stroke-width="2" transform="rotate(-28 32 32)"/>
+            <ellipse cx="32" cy="32" rx="28" ry="10" stroke="currentColor" stroke-width="1.5" transform="rotate(28 32 32)"/>
+            <circle cx="51" cy="16" r="3" fill="currentColor"/>
+            <circle cx="14" cy="43" r="2" fill="currentColor"/>
+          </svg>
+        </div>
+
+        <h3>Cosmic Portfolio</h3>
+        <p>An experimental personal portfolio inspired by black holes and deep space. It combines a dark visual system, an animated starfield, responsive layouts, pointer movement, scroll-based transitions and an interactive on-screen control.</p>
+        <div class="project-tag">Event Horizon · In progress</div>
       </article>
+
+      <article class="project">
+        <div class="project-number">PROJECT / 002</div>
+
+        <div class="project-art" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M32 7 51 18v22L32 53 13 40V18z" stroke="currentColor" stroke-width="2"/>
+            <path d="m32 15 12 7v14l-12 8-12-8V22z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M13 18 32 30l19-12M32 30v23" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M24 25h16" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+
+        <h3>DUSKBORN</h3>
+        <p>A future dark-aesthetic clothing and accessories brand focused on clean silhouettes, distinctive details and a mysterious, premium visual identity.</p>
+        <div class="project-tag">Brand concept · Planned</div>
+      </article>
+
+      <article class="project">
+        <div class="project-number">PROJECT / 003</div>
+
+        <div class="project-art" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none">
+            <rect x="7" y="10" width="50" height="44" rx="7" stroke="currentColor" stroke-width="2"/>
+            <path d="M7 21h50" stroke="currentColor" stroke-width="2"/>
+            <circle cx="15" cy="16" r="1.5" fill="currentColor"/>
+            <circle cx="21" cy="16" r="1.5" fill="currentColor"/>
+            <path d="m21 32-6 5 6 5M43 32l6 5-6 5M36 29l-7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <h3>TASKFLOW</h3>
+        <p>A task-management dashboard concept designed to help people organise projects, track progress and keep daily priorities clear in one place.</p>
+        <div class="project-tag">Web app concept · Planned</div>
+      </article>
+
+      <article class="project">
+        <div class="project-number">PROJECT / 004</div>
+
+        <div class="project-art" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="23" stroke="currentColor" stroke-width="2"/>
+            <path d="M32 17v16l11 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M20 7h24M32 4v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="32" cy="33" r="3" fill="currentColor"/>
+          </svg>
+        </div>
+
+        <h3>SPENDWISE</h3>
+        <p>A budget-friendly money-saving website concept for tracking spending, setting savings goals and making everyday budgeting easier to understand.</p>
+        <div class="project-tag">Finance tool concept · Planned</div>
+      </article>
+
+      <article class="project">
+        <div class="project-number">PROJECT / 005</div>
+
+        <div class="project-art" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M32 6 53 15v15c0 13-8 22-21 28C19 52 11 43 11 30V15z" stroke="currentColor" stroke-width="2"/>
+            <path d="m32 18 3.7 8 8.8 1.2-6.4 6.2 1.5 8.8-7.6-4.1-7.6 4.1 1.5-8.8-6.4-6.2 8.8-1.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <h3>GPS Tracker</h3>
+        <p>A location-tracking project concept exploring maps and location features, with privacy and user permission treated as essential parts of the design.</p>
+        <div class="project-tag">Location app concept · Planned</div>
+      </article>
+
     </div>
   </section>
 
@@ -626,6 +1091,7 @@ footer {
       <div class="eyebrow">05 / THE NEXT CONNECTION</div>
       <h2>LET'S CONNECT<br>BEYOND THE SCREEN.</h2>
       <p>Interested in connecting, sharing ideas, or following my journey as I grow in technology? Find me on GitHub or LinkedIn.</p>
+
       <div class="contact-links">
         <a class="btn" href="mailto:imranansari144690@gmail.com">Email me ↗</a>
         <a class="btn" href="https://github.com/imran44346" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
@@ -633,6 +1099,7 @@ footer {
       </div>
     </div>
   </section>
+
 </main>
 
 <footer>
@@ -642,20 +1109,59 @@ footer {
 
 <div class="joystick-wrap">
   <div class="joystick-label">SCENE CONTROL</div>
+
   <div class="joystick" id="joystick" aria-label="Drag to move the cosmic scene">
     <div class="stick" id="stick"></div>
   </div>
+
   <button id="reset" type="button">RESET VIEW ↺</button>
 </div>
+
+<script>
+/* REVEAL ELEMENTS EVERY TIME THEY ENTER THE VIEWPORT */
+
+const revealItems = document.querySelectorAll(
+  '.content-card, .projects-heading, .project, .contact-inner, .skill-icon-card'
+);
+
+revealItems.forEach(item => item.classList.add('reveal'));
+
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      /*
+        When an element enters the viewport, show it.
+        When it leaves, hide it again.
+        This makes the animation replay when scrolling down AND up.
+      */
+      entry.target.classList.toggle(
+        'is-visible',
+        entry.isIntersecting
+      );
+    });
+  }, {
+    threshold: 0.14,
+    rootMargin: '0px 0px -35px 0px'
+  });
+
+  revealItems.forEach(item => revealObserver.observe(item));
+} else {
+  revealItems.forEach(item => item.classList.add('is-visible'));
+}
+</script>
 
 <script type="module">
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 
 const canvas = document.querySelector('#universe');
+
 const renderer = new THREE.WebGLRenderer({
-  canvas, antialias: true, alpha: false,
+  canvas,
+  antialias: true,
+  alpha: false,
   powerPreference: 'high-performance'
 });
+
 renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.6));
 renderer.setSize(innerWidth, innerHeight);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -664,7 +1170,14 @@ renderer.toneMappingExposure = 1.15;
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x010102);
-const camera = new THREE.PerspectiveCamera(44, innerWidth / innerHeight, .1, 180);
+
+const camera = new THREE.PerspectiveCamera(
+  44,
+  innerWidth / innerHeight,
+  .1,
+  180
+);
+
 camera.position.set(0, 0, 10.7);
 
 const world = new THREE.Group();
@@ -673,27 +1186,36 @@ scene.add(world);
 const hole = new THREE.Group();
 world.add(hole);
 
-// The event horizon: nearly pure black, with a subtle reflective edge.
+/* EVENT HORIZON */
+
 const horizon = new THREE.Mesh(
   new THREE.SphereGeometry(1.12, 96, 64),
   new THREE.MeshStandardMaterial({
-    color: 0x010101, roughness: .25, metalness: .35
+    color: 0x010101,
+    roughness: .25,
+    metalness: .35
   })
 );
+
 hole.add(horizon);
 
 const rim = new THREE.Mesh(
   new THREE.TorusGeometry(1.17, .026, 16, 200),
   new THREE.MeshBasicMaterial({
-    color: 0xc6cbd4, transparent: true, opacity: .75
+    color: 0xc6cbd4,
+    transparent: true,
+    opacity: .75
   })
 );
+
 rim.rotation.x = Math.PI / 2;
 hole.add(rim);
 
-// Procedural grayscale accretion disk.
+/* PROCEDURAL ACCRETION DISK */
+
 const vertexShader = `
   varying vec2 vUv;
+
   void main() {
     vUv = uv;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
@@ -712,6 +1234,7 @@ const fragmentShader = `
     vec2 i = floor(p);
     vec2 f = fract(p);
     f = f*f*(3.0-2.0*f);
+
     return mix(
       mix(hash(i),hash(i+vec2(1.0,0.0)),f.x),
       mix(hash(i+vec2(0.0,1.0)),hash(i+vec2(1.0,1.0)),f.x),
@@ -722,11 +1245,13 @@ const fragmentShader = `
   float fbm(vec2 p) {
     float v=0.0;
     float a=.5;
+
     for(int i=0;i<5;i++) {
       v += noise(p)*a;
       p *= 2.02;
       a *= .5;
     }
+
     return v;
   }
 
@@ -734,39 +1259,68 @@ const fragmentShader = `
     vec2 p = vUv - .5;
     float r = length(p)*2.0;
     float a = atan(p.y,p.x);
+
     float swirl = a + 1.45/(r+.15) - uTime*.20;
-    float turbulence = fbm(vec2(a*2.5 + uTime*.06, r*15.0-uTime*.1));
+
+    float turbulence = fbm(
+      vec2(a*2.5 + uTime*.06, r*15.0-uTime*.1)
+    );
+
     float bands = .5 + .5*sin(swirl*8.0 + turbulence*5.0);
     float inner = exp(-pow((r-.35)*8.0,2.0));
     float outer = smoothstep(.18,.34,r)*(1.0-smoothstep(.76,1.0,r));
     float streak = pow(max(bands,0.0),3.0);
-    float light = (.12 + .42*streak + .34*turbulence + .34*inner)*outer;
+
+    float light = (
+      .12 + .42*streak + .34*turbulence + .34*inner
+    )*outer;
+
     light *= .72 + .28*sin(a*1.8+1.0);
+
     vec3 charcoal = vec3(.16,.17,.19);
     vec3 silver = vec3(.76,.78,.82);
-    vec3 color = mix(charcoal,silver,clamp(light*1.5,0.0,1.0))*light*1.65;
-    float alpha = outer*(.15 + .76*clamp(light*1.5,0.0,1.0));
+
+    vec3 color = mix(
+      charcoal,
+      silver,
+      clamp(light*1.5,0.0,1.0)
+    )*light*1.65;
+
+    float alpha = outer*(
+      .15 + .76*clamp(light*1.5,0.0,1.0)
+    );
+
     gl_FragColor = vec4(color,alpha);
+
     #include <tonemapping_fragment>
     #include <colorspace_fragment>
   }
 `;
 
 const diskMaterial = new THREE.ShaderMaterial({
-  uniforms: { uTime: { value: 0 } },
-  vertexShader, fragmentShader,
+  uniforms: {
+    uTime: { value: 0 }
+  },
+  vertexShader,
+  fragmentShader,
   transparent: true,
   depthWrite: false,
   side: THREE.DoubleSide,
   blending: THREE.AdditiveBlending
 });
 
-const disk = new THREE.Mesh(new THREE.PlaneGeometry(5.6,5.6), diskMaterial);
+const disk = new THREE.Mesh(
+  new THREE.PlaneGeometry(5.6,5.6),
+  diskMaterial
+);
+
 disk.rotation.x = -Math.PI / 2.12;
 disk.rotation.z = -.14;
+
 hole.add(disk);
 
-// Multiple rings add depth and the illusion of light wrapping around the hole.
+/* ORBITING LIGHT RINGS */
+
 [
   { r:1.32, tube:.018, opacity:.48 },
   { r:1.56, tube:.012, opacity:.22 },
@@ -774,187 +1328,305 @@ hole.add(disk);
   { r:2.16, tube:.008, opacity:.08 }
 ].forEach(item => {
   const ring = new THREE.Mesh(
-    new THREE.TorusGeometry(item.r,item.tube,8,200),
+    new THREE.TorusGeometry(
+      item.r,
+      item.tube,
+      8,
+      200
+    ),
     new THREE.MeshBasicMaterial({
-      color:0xc3c7d0, transparent:true,
-      opacity:item.opacity, blending:THREE.AdditiveBlending,
-      depthWrite:false
+      color: 0xc3c7d0,
+      transparent: true,
+      opacity: item.opacity,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false
     })
   );
+
   ring.rotation.x = Math.PI / 2.12;
   ring.rotation.z = -.14;
+
   hole.add(ring);
 });
 
-// Stars distributed throughout the deep background.
+/* DEEP SPACE STARFIELD */
+
 const starCount = 2400;
-const positions = new Float32Array(starCount*3);
-for (let i=0;i<starCount;i++) {
-  const radius=18+Math.random()*75;
-  const theta=Math.random()*Math.PI*2;
-  const u=Math.random()*2-1;
-  const s=Math.sqrt(1-u*u);
-  positions[i*3]=radius*s*Math.cos(theta);
-  positions[i*3+1]=radius*u;
-  positions[i*3+2]=radius*s*Math.sin(theta)-20;
+const positions = new Float32Array(starCount * 3);
+
+for (let i = 0; i < starCount; i++) {
+  const radius = 18 + Math.random() * 75;
+  const theta = Math.random() * Math.PI * 2;
+  const u = Math.random() * 2 - 1;
+  const s = Math.sqrt(1 - u * u);
+
+  positions[i * 3] = radius * s * Math.cos(theta);
+  positions[i * 3 + 1] = radius * u;
+  positions[i * 3 + 2] = radius * s * Math.sin(theta) - 20;
 }
+
 const starGeometry = new THREE.BufferGeometry();
-starGeometry.setAttribute('position',new THREE.BufferAttribute(positions,3));
+
+starGeometry.setAttribute(
+  'position',
+  new THREE.BufferAttribute(positions, 3)
+);
+
 const stars = new THREE.Points(
   starGeometry,
   new THREE.PointsMaterial({
-    color:0xc5c8d0, size:.045,
-    transparent:true, opacity:.75,
-    sizeAttenuation:true, depthWrite:false
+    color: 0xc5c8d0,
+    size: .045,
+    transparent: true,
+    opacity: .75,
+    sizeAttenuation: true,
+    depthWrite: false
   })
 );
+
 scene.add(stars);
 
-// Orbiting particles.
+/* ORBITING PARTICLES */
+
 const particleCount = 850;
 const particleData = [];
-const particlePositions = new Float32Array(particleCount*3);
-for(let i=0;i<particleCount;i++){
-  const radius=1.55+Math.random()*2.35;
-  const angle=Math.random()*Math.PI*2;
-  const y=(Math.random()-.5)*.18;
-  particleData.push({radius,angle,y,speed:(.12+Math.random()*.22)*(Math.random()<.5?-1:1)});
-  particlePositions[i*3]=Math.cos(angle)*radius;
-  particlePositions[i*3+1]=y;
-  particlePositions[i*3+2]=Math.sin(angle)*radius;
+const particlePositions = new Float32Array(particleCount * 3);
+
+for (let i = 0; i < particleCount; i++) {
+  const radius = 1.55 + Math.random() * 2.35;
+  const angle = Math.random() * Math.PI * 2;
+  const y = (Math.random() - .5) * .18;
+
+  particleData.push({
+    radius,
+    angle,
+    y,
+    speed: (.12 + Math.random() * .22) * (
+      Math.random() < .5 ? -1 : 1
+    )
+  });
+
+  particlePositions[i * 3] = Math.cos(angle) * radius;
+  particlePositions[i * 3 + 1] = y;
+  particlePositions[i * 3 + 2] = Math.sin(angle) * radius;
 }
-const particleGeometry=new THREE.BufferGeometry();
-particleGeometry.setAttribute('position',new THREE.BufferAttribute(particlePositions,3));
-const particles=new THREE.Points(
+
+const particleGeometry = new THREE.BufferGeometry();
+
+particleGeometry.setAttribute(
+  'position',
+  new THREE.BufferAttribute(particlePositions, 3)
+);
+
+const particles = new THREE.Points(
   particleGeometry,
   new THREE.PointsMaterial({
-    color:0xd8dbe2,size:.018,
-    transparent:true,opacity:.62,
-    blending:THREE.AdditiveBlending,depthWrite:false
+    color: 0xd8dbe2,
+    size: .018,
+    transparent: true,
+    opacity: .62,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
   })
 );
-particles.rotation.x=Math.PI/2.12;
+
+particles.rotation.x = Math.PI / 2.12;
 hole.add(particles);
 
-// User scroll and joystick controls.
-let scrollTarget=0, scrollValue=0;
-let mouseX=0, mouseY=0, smoothX=0, smoothY=0;
-let joyX=0, joyY=0, targetJoyX=0, targetJoyY=0;
+/* SCROLL, MOUSE AND JOYSTICK CONTROLS */
 
-const progress=document.querySelector('#progress');
-function updateScroll(){
-  const max=document.documentElement.scrollHeight-innerHeight;
-  scrollTarget=max>0?scrollY/max:0;
-  progress.style.width=(scrollTarget*100)+'%';
+let scrollTarget = 0;
+let scrollValue = 0;
+
+let mouseX = 0;
+let mouseY = 0;
+let smoothX = 0;
+let smoothY = 0;
+
+let joyX = 0;
+let joyY = 0;
+let targetJoyX = 0;
+let targetJoyY = 0;
+
+const progress = document.querySelector('#progress');
+
+function updateScroll() {
+  const max = document.documentElement.scrollHeight - innerHeight;
+
+  scrollTarget = max > 0 ? scrollY / max : 0;
+  progress.style.width = (scrollTarget * 100) + '%';
 }
-addEventListener('scroll',updateScroll,{passive:true});
+
+addEventListener('scroll', updateScroll, { passive: true });
 updateScroll();
 
-addEventListener('pointermove',e=>{
-  mouseX=(e.clientX/innerWidth-.5)*.35;
-  mouseY=(e.clientY/innerHeight-.5)*.24;
-},{passive:true});
+addEventListener('pointermove', e => {
+  mouseX = (e.clientX / innerWidth - .5) * .35;
+  mouseY = (e.clientY / innerHeight - .5) * .24;
+}, { passive: true });
 
-const joystick=document.querySelector('#joystick');
-const stick=document.querySelector('#stick');
-let dragging=false;
-function setJoystick(e){
-  const rect=joystick.getBoundingClientRect();
-  const dx=e.clientX-(rect.left+rect.width/2);
-  const dy=e.clientY-(rect.top+rect.height/2);
-  const limit=27;
-  const length=Math.hypot(dx,dy)||1;
-  const x=dx/Math.max(1,length)*Math.min(limit,length);
-  const y=dy/Math.max(1,length)*Math.min(limit,length);
-  stick.style.transform=`translate(calc(-50% + ${x}px),calc(-50% + ${y}px))`;
-  targetJoyX=x/limit;
-  targetJoyY=y/limit;
+const joystick = document.querySelector('#joystick');
+const stick = document.querySelector('#stick');
+
+let dragging = false;
+
+function setJoystick(e) {
+  const rect = joystick.getBoundingClientRect();
+
+  const dx = e.clientX - (rect.left + rect.width / 2);
+  const dy = e.clientY - (rect.top + rect.height / 2);
+
+  const limit = 27;
+  const length = Math.hypot(dx, dy) || 1;
+
+  const x = dx / Math.max(1, length) * Math.min(limit, length);
+  const y = dy / Math.max(1, length) * Math.min(limit, length);
+
+  stick.style.transform =
+    `translate(calc(-50% + ${x}px),calc(-50% + ${y}px))`;
+
+  targetJoyX = x / limit;
+  targetJoyY = y / limit;
 }
-joystick.addEventListener('pointerdown',e=>{
-  dragging=true;
+
+joystick.addEventListener('pointerdown', e => {
+  dragging = true;
   joystick.setPointerCapture(e.pointerId);
   setJoystick(e);
 });
-joystick.addEventListener('pointermove',e=>{if(dragging)setJoystick(e);});
-function releaseJoystick(){
-  dragging=false;
-  targetJoyX=0;
-  targetJoyY=0;
-  stick.style.transform='translate(-50%,-50%)';
+
+joystick.addEventListener('pointermove', e => {
+  if (dragging) setJoystick(e);
+});
+
+function releaseJoystick() {
+  dragging = false;
+  targetJoyX = 0;
+  targetJoyY = 0;
+  stick.style.transform = 'translate(-50%,-50%)';
 }
-joystick.addEventListener('pointerup',releaseJoystick);
-joystick.addEventListener('pointercancel',releaseJoystick);
-document.querySelector('#reset').addEventListener('click',()=>{
-  window.scrollTo({top:0,behavior:'smooth'});
-  targetJoyX=targetJoyY=0;
+
+joystick.addEventListener('pointerup', releaseJoystick);
+joystick.addEventListener('pointercancel', releaseJoystick);
+
+document.querySelector('#reset').addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+
+  targetJoyX = 0;
+  targetJoyY = 0;
+
   releaseJoystick();
 });
 
-// Small interaction ripple on click/tap, except on links and controls.
-addEventListener('pointerdown',e=>{
-  if(e.target.closest('a,button,#joystick'))return;
-  const ripple=document.createElement('div');
-  ripple.className='ripple';
-  ripple.style.left=e.clientX+'px';
-  ripple.style.top=e.clientY+'px';
+/* CLICK RIPPLE EFFECT */
+
+addEventListener('pointerdown', e => {
+  if (e.target.closest('a,button,#joystick')) return;
+
+  const ripple = document.createElement('div');
+
+  ripple.className = 'ripple';
+  ripple.style.left = e.clientX + 'px';
+  ripple.style.top = e.clientY + 'px';
+
   document.body.appendChild(ripple);
-  setTimeout(()=>ripple.remove(),800);
+
+  setTimeout(() => ripple.remove(), 800);
 });
 
-const clock=new THREE.Clock();
-function animate(){
+/* MAIN ANIMATION LOOP */
+
+const clock = new THREE.Clock();
+
+function animate() {
   requestAnimationFrame(animate);
-  const t=clock.getElapsedTime();
 
-  scrollValue+=(scrollTarget-scrollValue)*.045;
-  smoothX+=(mouseX-smoothX)*.035;
-  smoothY+=(mouseY-smoothY)*.035;
-  joyX+=(targetJoyX-joyX)*.08;
-  joyY+=(targetJoyY-joyY)*.08;
+  const t = clock.getElapsedTime();
 
-  diskMaterial.uniforms.uTime.value=t;
+  scrollValue += (scrollTarget - scrollValue) * .045;
 
-  hole.rotation.y=t*.025+smoothX+joyX*.4+scrollValue*.9;
-  hole.rotation.x=-.14+smoothY+joyY*.24+scrollValue*.25;
-  hole.rotation.z=-.1+scrollValue*.22+Math.sin(t*.09)*.015;
-  const scale=1+scrollValue*.13+Math.sin(t*.2)*.009;
+  smoothX += (mouseX - smoothX) * .035;
+  smoothY += (mouseY - smoothY) * .035;
+
+  joyX += (targetJoyX - joyX) * .08;
+  joyY += (targetJoyY - joyY) * .08;
+
+  diskMaterial.uniforms.uTime.value = t;
+
+  hole.rotation.y =
+    t * .025 + smoothX + joyX * .4 + scrollValue * .9;
+
+  hole.rotation.x =
+    -.14 + smoothY + joyY * .24 + scrollValue * .25;
+
+  hole.rotation.z =
+    -.1 + scrollValue * .22 + Math.sin(t * .09) * .015;
+
+  const scale = 1 + scrollValue * .13 + Math.sin(t * .2) * .009;
+
   hole.scale.setScalar(scale);
 
-  // As the user scrolls, the entire 3D scene drifts through the viewport.
-  world.position.y=-scrollValue*1.65+Math.sin(scrollValue*Math.PI*2)*.22+joyY*.22;
-  world.position.x=Math.sin(scrollValue*Math.PI*1.5)*.25+joyX*.3;
-  world.rotation.z=scrollValue*.10+joyX*.025;
+  world.position.y =
+    -scrollValue * 1.65 +
+    Math.sin(scrollValue * Math.PI * 2) * .22 +
+    joyY * .22;
 
-  camera.position.z=10.7-scrollValue*.8;
-  camera.position.x=smoothX*.8+joyX*.22;
-  camera.position.y=.12+scrollValue*.32-smoothY*.5-joyY*.22;
-  camera.lookAt(world.position.x*.12,world.position.y*.12,0);
+  world.position.x =
+    Math.sin(scrollValue * Math.PI * 1.5) * .25 +
+    joyX * .3;
 
-  stars.rotation.y=t*.0015+scrollValue*.10+joyX*.01;
-  stars.rotation.x=scrollValue*.035+joyY*.015;
+  world.rotation.z = scrollValue * .10 + joyX * .025;
 
-  const arr=particleGeometry.attributes.position.array;
-  for(let i=0;i<particleCount;i++){
-    const p=particleData[i];
-    const a=p.angle+t*p.speed*.14;
-    arr[i*3]=Math.cos(a)*p.radius;
-    arr[i*3+1]=p.y+Math.sin(a*2+t*.2)*.025;
-    arr[i*3+2]=Math.sin(a)*p.radius;
+  camera.position.z = 10.7 - scrollValue * .8;
+  camera.position.x = smoothX * .8 + joyX * .22;
+  camera.position.y = .12 + scrollValue * .32 - smoothY * .5 - joyY * .22;
+
+  camera.lookAt(
+    world.position.x * .12,
+    world.position.y * .12,
+    0
+  );
+
+  stars.rotation.y = t * .0015 + scrollValue * .10 + joyX * .01;
+  stars.rotation.x = scrollValue * .035 + joyY * .015;
+
+  const arr = particleGeometry.attributes.position.array;
+
+  for (let i = 0; i < particleCount; i++) {
+    const p = particleData[i];
+    const a = p.angle + t * p.speed * .14;
+
+    arr[i * 3] = Math.cos(a) * p.radius;
+    arr[i * 3 + 1] = p.y + Math.sin(a * 2 + t * .2) * .025;
+    arr[i * 3 + 2] = Math.sin(a) * p.radius;
   }
-  particleGeometry.attributes.position.needsUpdate=true;
 
-  renderer.render(scene,camera);
+  particleGeometry.attributes.position.needsUpdate = true;
+
+  renderer.render(scene, camera);
 }
+
 animate();
 
-function resize(){
-  camera.aspect=innerWidth/innerHeight;
-  camera.fov=innerWidth<650?52:44;
+/* RESPONSIVE RENDERING */
+
+function resize() {
+  camera.aspect = innerWidth / innerHeight;
+  camera.fov = innerWidth < 650 ? 52 : 44;
   camera.updateProjectionMatrix();
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.6));
-  renderer.setSize(innerWidth,innerHeight);
+
+  renderer.setPixelRatio(
+    Math.min(window.devicePixelRatio || 1, 1.6)
+  );
+
+  renderer.setSize(innerWidth, innerHeight);
 }
-addEventListener('resize',resize);
+
+addEventListener('resize', resize);
 </script>
+
 </body>
 </html>
